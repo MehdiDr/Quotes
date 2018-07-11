@@ -19,7 +19,8 @@ export default {
   },
   methods: {
     createNew() {
-      this.$emit('quoteAdded', this.quote);
+      this.quote === '' ? alert('write something before add') : this.$emit('quoteAdded', this.quote);
+      // this.$emit('quoteAdded', this.quote);
       this.quote = '';
     }
   }

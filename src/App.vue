@@ -5,7 +5,7 @@
         <app-quotes-grid :quotes='quotes' @quoteDeleted='deleteQuote'></app-quotes-grid>
         <div class='row'>
             <div class='col-sm-12'>
-                <div class="alert alert-info"> Info: Click on a quote to delete it /</div>
+                <div v-show='quotes.length > 0' class="alert alert-info"> Info: Click on a quote to delete it !</div>
             </div>
         </div>
     </div>
@@ -18,16 +18,14 @@
     export default {
       data: function() {
           return {
-              quotes: [
-                  'Just a test quote'
-              ],
+              quotes: [],
               maxQuotes: 20
           }
       },
       methods: {
           addQuotes(quote) {
-              this.quotes.length >= this.maxQuotes ? alert('Please delete quote before add new') : '';
-              this.quotes.push(quote);
+              this.quotes.length >= this.maxQuotes ? 
+                alert('Please delete quote before add new') : this.quotes.push(quote);
           },
           deleteQuote(i) {
               this.quotes.splice(i, 1);

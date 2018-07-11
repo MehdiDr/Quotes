@@ -25,7 +25,3 @@ export default {
   props: ['quoteCount', 'maxQuotes']
 }
 </script>
-
-<style>
-
-</style>
